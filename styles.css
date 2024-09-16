@@ -11,6 +11,17 @@
     padding: 0px;
     font-size: 16px;
 }
+a.anchor {
+    display: block;
+    position: relative;
+    top: -60px;
+    visibility: hidden;
+}
+a.link {
+    color: darkblue;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 18px;
+}
 
 nav {
     position: fixed;
@@ -62,14 +73,28 @@ body {
     background-color: #A1D6B2;
 }
 h1 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 3rem;
-    margin: 28px 16px 6px;
+    margin: 60px 24px 0px;
+    padding-top: 6px;
 }
 h2 {
-    font-size: 1.2rem;
-    margin: 0px 24px 28px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+    margin: 6px 36px;
+}
+h3 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+    margin: 6px 24px;
 }
 p {
-    font-size: 1.8rem;
-    padding: 30px;
+    font-size: 1.1rem;
+    margin: 6px 24px;
+}
+.page-break-small {
+    margin: 40px;
+}
+.page-break-medium {
+    margin: 100px;
 }
