@@ -1,16 +1,77 @@
+/*color palette:
+    #A1D6B2
+    #CEDF9F
+    #F1F3C2
+    #E8B86D */
+
+* {
+    color: black;
+    font-family: Verdana, Tahoma, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    width: 100vw;
+    text-align: right;
+    align-items: center;
+    background-color: #CEDF9F;
+}
+nav a {
+    padding: 20px 24px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #E8B86D;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown .dropdown-label {
+    padding: 20px 24px;
+    background-color: #CEDF9F;
+    border: none;
+    outline: none;
+}
+.dropdown:hover .dropdown-label {
+    background-color: #E8B86D;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: left;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: #F1F3C2;
+}
+.dropdown-content a{
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
 body {
-    background-color: powderblue;
+    background-color: #A1D6B2;
 }
 h1 {
-    color: blue;
-    font-family: verdana;
-    font-size: 300%;
-    border: 2px solid powderblue;
-    margin: 50px;
+    font-size: 3rem;
+    margin: 28px 16px 6px;
+}
+h2 {
+    font-size: 1.2rem;
+    margin: 0px 24px 28px;
 }
 p {
-    color: red;
-    font-family: courier;
-    font-size: 200%;
+    font-size: 1.8rem;
     padding: 30px;
 }
