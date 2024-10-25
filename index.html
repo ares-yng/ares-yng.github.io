@@ -6,31 +6,54 @@
 
     <body>
         <nav>
-            <a href="#about-me">About Me</a>
-            <div class="dropdown">
-                <button class="dropdown-label">
-                    <a href="#projects">Projects</a>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#project1">Growing Pepper</a>
-                    <a href="#project2">My Portfolio</a>
-                    <a href="#project3">Discord Bot</a>
+            <canvas id="nav-canvas" height="60"></canvas>
+
+            <div class="nav-left">
+                <img src="Icon.png"/>
+                <a id="home" href="#landing-link">Ares Duong</a>
+            </div>
+
+            <div class="nav-right">
+                <a class="nav-section" href="#about-me">About Me</a>
+                <div class="dropdown">
+                    <a class="nav-section" href="#projects">Projects</a>
+                    <div class="dropdown-content">
+                        <a class="nav-section" href="#project1">Growing Pepper</a>
+                        <a class="nav-section" href="#project2">My Portfolio</a>
+                        <a class="nav-section" href="#project3">Discord Bot</a>
+                    </div>
+                </div>
+                <a class="nav-section" href="#contact" style="margin-right: 20px;">Contact</a>
+            </div>
+        </nav>
+
+        <canvas id="page-canvas" style="position: absolute; top: 58px; z-index: -1;"></canvas>
+
+        <div id="landing-box">
+            <a class="anchor" id="landing-link"></a>
+            <div id="landing-signature">
+                <div id="landing-name" style="font-size: 1.5rem; color: white">ARES DUONG</div>
+                <div id="landing-year" style="color: white">2024</div>
+            </div>
+            <div id="landing-splash-left">
+                <div style="font-size: 20rem; margin-bottom: 4rem;">{</div>
+                <div style="text-align: right;">
+                    <div style="font-size: 5.4rem; font-weight: bold;">SOFT</div>
+                    <div style="font-size: 5rem; font-weight: bold;">WARE</div>
+                    <hr style="height: 6px; background-color: white; border-width: 0;">
+                    <div style="font-size: 2.8rem;">DEVELOPER</div>
                 </div>
             </div>
-            <a href="#contact">Contact</a>
-        </nav>
+            <div id="landing-splash-right">
+                <div style="font-size:2.4rem; writing-mode: vertical-rl; color: white;">PORTFOLIO</div>
+                <div style="font-size:20rem; margin-bottom: 4rem; color: white;">}</div>
+            </div>
+        </div>
 
         <h1>
             <a class="anchor" id="about-me"></a>
-            ARES DUONG
-        </h1>
-        <h2>
-            portfolio
-        </h2>
-        <div class="page-break-small"></div>
-        <h3>
             About Me
-        </h3>
+        </h1>
         <p>
             Hello! I'm an enthusiastic problem solver with a passion for building structures and turning designs into a reality.
         </p>
@@ -79,10 +102,12 @@
         <div class="page-break-small"></div>
         <h3>
             <a class="anchor" id="project3"></a>
-            Discord Bot
+            Discord Bots
         </h3>
         <p>
-            tbc
+            2019: Salmon Time. A community project for 20-40 people.
+            <br>
+            2024: Ready Set Go. This project stemmed from a desire to give back to my community and contribute to a community event. The project spanned 50 hours, during which I gained experience with various hosting services, including Vercel, Cloudflare, Replit, Oracle Cloud, CodeSandbox, and Heroku, through research and testing.
         </p>
         <div class="page-break-medium"></div>
 
@@ -97,5 +122,105 @@
         </p>
         
         <div class="page-break-medium"></div>
+        
+        <script>
+            const navCanvas = document.getElementById("nav-canvas");
+            const ctx = navCanvas.getContext("2d");
+
+            function drawNavBackground() {
+                ctx.fillStyle = "#FFC105";
+                ctx.beginPath();
+
+                ctx.moveTo(0,0);
+                ctx.lineTo(0,60);
+                ctx.lineTo(300,60);
+                ctx.lineTo(280,0);
+
+                ctx.moveTo(300,0);
+                ctx.lineTo(320,60);
+                ctx.lineTo(360,60);
+                ctx.lineTo(340,0);
+
+                ctx.moveTo(360,0);
+                ctx.lineTo(380,60);
+                ctx.lineTo(410,60);
+                ctx.lineTo(390,0);
+
+                ctx.moveTo(410,0);
+                ctx.lineTo(430,60);
+                ctx.lineTo(450,60);
+                ctx.lineTo(430,0);
+
+                ctx.moveTo(450,0);
+                ctx.lineTo(470,60);
+                ctx.lineTo(485,60);
+                ctx.lineTo(465,0);
+
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.fillStyle = "0e0e0e"
+                ctx.lineWidth = 4;
+                ctx.moveTo(0,60);
+                ctx.lineTo(navCanvas.width,60);
+                ctx.stroke();
+            }
+
+            const pageCanvas = document.getElementById("page-canvas");
+            const ctx2 = pageCanvas.getContext("2d");
+
+            function drawBackground(leftBoxHeight) {
+                ctx2.beginPath();
+                ctx2.strokeStyle = "0e0e0e";
+                ctx2.lineWidth = 1;
+
+                //left box
+                ctx2.fillStyle = "#FFC105";
+                ctx2.fillRect(pageCanvas.width/20, 0, pageCanvas.width/20*10, leftBoxHeight);
+                ctx2.strokeRect(pageCanvas.width/20, 0, pageCanvas.width/20*10, leftBoxHeight);
+
+                //right box
+                ctx2.fillStyle = "#0e0e0e";
+                ctx2.fillRect(pageCanvas.width/20*11, 0 + pageCanvas.width/20, pageCanvas.width/20*10 - pageCanvas.width/20*2, pageCanvas.height);
+                ctx2.strokeRect(pageCanvas.width/20*11, 0 + pageCanvas.width/20, pageCanvas.width/20*10 - pageCanvas.width/20*2, pageCanvas.height);
+            }
+            
+            const landingBox = document.getElementById("landing-box");
+            const landingSignature = document.getElementById("landing-signature");
+            const landingSplashLeft = document.getElementById("landing-splash-left");
+            const landingSplashRight = document.getElementById("landing-splash-right");
+
+            function resizeCanvas() {
+                //nav bar canvas
+                navCanvas.width = document.documentElement.clientWidth;
+
+                //landing page size
+                landingBox.style.width = (document.documentElement.clientWidth).toString() + "px";
+                landingBox.style.height = (window.innerHeight).toString() + "px";
+
+                //entire page canvas
+                pageCanvas.width = document.documentElement.clientWidth;
+                pageCanvas.height = document.body.offsetHeight;
+                var leftBoxHeight = window.innerHeight - 60 - pageCanvas.width/20;
+                if (leftBoxHeight < 400) {leftBoxHeight = 400;}
+
+                //elements on the landing page
+                landingSignature.style.marginTop = (pageCanvas.width/20).toString() + "px";
+                landingSignature.style.marginRight = (pageCanvas.width/20).toString() + "px";
+                
+                landingSplashLeft.style.marginTop = (leftBoxHeight/20*2).toString() + "px";
+                landingSplashLeft.style.marginRight = (pageCanvas.width/20*9 + pageCanvas.width/20/2).toString() + "px";
+                landingSplashLeft.style.right = "0";
+                
+                landingSplashRight.style.marginTop = (leftBoxHeight/20*2).toString() + "px";
+                landingSplashRight.style.marginLeft = (pageCanvas.width/20*11 + pageCanvas.width/20/2).toString() + "px";
+
+                drawNavBackground();
+                drawBackground(leftBoxHeight);
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+        </script>
     </body>
 </html>
